@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple form</title>
+    </head>
+    <body>
+        <h2 style="color:darkblue;">A Simple Form </h2>
+        <p><i style="color:darkblue,">Form Fundamentals</i></p>
+
+        <form action="3" mehod="post" autocomplete="on">
+         <fieldset> <legend> <b> Customer info </b></legend>
+            
+            
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" placeholder="Enter your name" required autofocus>
+<br><br>
+
+<label for="tele">Telephone:</label>
+<input type="text" id="tele" name="tele" placeholder="Pattern 1-234-567-8910" required>
+<br><br>
+
+
+<label for="email">Email address:</label>
+<input type="email" id="email" name="email" placeholder="Enter your email address" required>
+<br><br>
+</fieldset>
+
+<filedset><legend><b>Books</b></legend>
+    <label for="book">Book:</label>
+    <input list="books" id="book" name="book">
+    <datalist id="books">
+        <option value="Book A"></option>
+        <option value="Book B"></option>
+        <option value="Book C"></option>
+        <option value="Book D"></option>
+    </datalist>
+    <label for="Quant">Quantity(Max 5)</label>
+    <input type="number" id="quant" name="quant" min="1" max="5">
+</filedset>
+<br><br>
+<form action="thankyou.html" method="post">
+    <button type="submit">Submit</button>
+</form>
+
+</form>
+
+<p> &COPY; 2011 Acme United. All rights reserved.</p>
+
+</body>
+</html>

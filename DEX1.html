@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .blogheading {
+            background: yellow;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 20%;
+            padding: 10px;
+        }
+
+        .main-content {
+            width: 60%;
+            padding: 10px;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .top-right-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 150px;
+            height: 100px;
+            background: lightgray;
+            border: 2px dashed green;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blogheading">
+        Welcome to my blog
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <a href="weblab1.html">Today</a>
+            <br>
+            <a href="weblab1.html">Yesterday</a>
+        </div>
+
+        <div class="main-content">
+            <h2>My Website</h2>
+            <p>Welcome to my simple webpage with width, height, and styling.</p>
+
+            <br><br>
+
+            <h2>4 March 2025</h2>
+            <p>I am in my weblab right now</p>
+
+            <br><br>
+
+            <h2>6TH SEM STARTS</h2>
+            <p>One day after our 5th sem, our 6th sem started.</p>
+
+            <br><br>
+
+            <div class="top-right-box">
+                <h3>Last Posts</h3>
+                <a href="#">Post 1</a>
+                <a href="#">Post 2</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

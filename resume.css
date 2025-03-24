@@ -1,0 +1,50 @@
+/* Background and text color */
+body {
+    background-color: lightgray;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Header styling */
+header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* H1 and H2 styles */
+h1 {
+    font-size: 24px;
+    font-style: italic;
+}
+
+h2 {
+    color: blue;
+}
+
+/* Section styling */
+section {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    background-color: darkgray;
+    padding: 5px;
+}
+
+/* Pseudo-element: Make the first letter bold */
+p::first-letter {
+    font-weight: bold;
+}
+
+/* Pseudo-class: Change text color on hover */
+ul li:hover {
+    color: red;
+}
