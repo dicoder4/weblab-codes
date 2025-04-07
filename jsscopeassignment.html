@@ -1,0 +1,149 @@
+<!-- 
+Name: Diya D Shah
+USN: 1MS22CS051
+Section: A
+
+What I Learned:
+Through this assignment, I learned the difference between global and local scopes in JavaScript, 
+how hoisting affects variable and function declarations, and the difference between function declarations,
+ expressions, and anonymous functions. I also understood how lexical scope allows nested functions to access outer variables, 
+ and that 'var' is function-scoped, not block-scoped.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Scope & Function Demo</title>
+</head>
+<body>
+  <h2>Open the console to view the output</h2>
+  <button onclick="runQuiz()">Start Quiz</button>
+  <button onclick="reviewScore()">Review Score</button>
+  <hr>
+  <button onclick="evaluateStudent()">Evaluate Student</button>
+
+  <script>
+
+    // 1. QUIZ APP IMPLEMENTATION
+
+
+    var totalScore = 0; // Global variable to track score
+
+    // Function Declaration
+    function question1() {
+      var answer = prompt("Q1: What is 2 + 2?");
+      var score = 0;
+      if (answer === "4") {
+        score = 1;
+        totalScore++;
+      }
+      console.log("Q1 Score (Local):", score);
+    }
+
+    // Function Expression
+    var question2 = function () {
+      var answer = prompt("Q2: What is the capital of France?");
+      var score = 0;
+      if (answer.toLowerCase() === "paris") {
+        score = 1;
+        totalScore++;
+      }
+      console.log("Q2 Score (Local):", score);
+    };
+
+    // Demonstrating Hoisting
+    function question3() {
+      console.log("Value of 'hoistedVar' before declaration:", hoistedVar); // undefined due to hoisting
+      var hoistedVar = "This is hoisted";
+      var answer = prompt("Q3: What keyword is used to declare a variable in JS?");
+      var score = 0;
+      if (answer.toLowerCase() === "var") {
+        score = 1;
+        totalScore++;
+      }
+      console.log("Q3 Score (Local):", score);
+    }
+
+    function runQuiz() {
+      totalScore = 0;
+      question1();
+      question2();
+      question3();
+      console.log("Total Score:", totalScore);
+    }
+
+    // Bonus: Try accessing a local variable (should fail)
+    function reviewScore() {
+      try {
+        console.log("Trying to access local score from Q1:", score);
+      } catch (err) {
+        console.log("Error: Cannot access local 'score' outside its function. Scope violation.");
+      }
+    }
+
+    // 2. STUDENT ACTIVITY RANK TOOL
+
+    // Global Variables
+    var studentName = "Anika";
+    var activityScores = [10, 20, 15, 5];
+
+    // Function Declaration
+    function calculateTotal(scores) {
+      var total = 0;
+      for (var i = 0; i < scores.length; i++) {
+        total += scores[i];
+      }
+      return total;
+    }
+
+    // Function Expression
+    var evaluateRank = function (total) {
+      if (total > 40) return "Star Performer";
+      else if (total >= 30) return "Active";
+      else return "Inactive";
+    };
+
+    // Anonymous Function
+    var averageScore = function () {
+      return calculateTotal(activityScores) / activityScores.length;
+    };
+
+    // Lexical Scope with Nested Function
+    function generateReport(name, rank) {
+      var message = rank === "Star Performer" ? "Great job on co-curriculars!" : "Keep pushing!";
+      function showDetails() {
+        console.log("Report:");
+        console.log("Student:", name);
+        console.log("Rank:", rank);
+        console.log("Message:", message);
+      }
+      showDetails();
+    }
+
+    function evaluateStudent() {
+      console.log("Student:", studentName);
+      console.log("Activity Scores:", activityScores);
+
+      // Hoisting Experiment
+      console.log("Category before declaration:", category); // undefined
+      var category = "Demo Category";
+
+      var total = calculateTotal(activityScores);
+      var rank = evaluateRank(total);
+      var avg = averageScore();
+
+      console.log("Total Score:", total);
+      console.log("Average Score:", avg);
+      console.log("Rank:", rank);
+
+      generateReport(studentName, rank);
+
+      // Scope Isolation Test
+      if (true) {
+        var scopedVar = "Declared inside if block";
+      }
+      console.log("Accessing 'scopedVar' outside block:", scopedVar); // Accessible due to function scope of var
+    }
+  </script>
+</body>
+</html>
