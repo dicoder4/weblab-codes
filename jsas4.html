@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rövarspråket Translator</title>
+    <script>
+        function translate(text) {
+            var result = "";
+            for (var i = 0; i < text.length; i++) {
+                var char = text[i];
+                if (isConsonant(char)) {
+                    result += char + "o" + char;
+                } else {
+                    result += char;
+                }
+            }
+            return result;
+        }
+
+        function isConsonant(char) {
+            var lower = char.toLowerCase();
+            return lower >= 'a' && lower <= 'z' &&
+                   lower !== 'a' && lower !== 'e' &&
+                   lower !== 'i' && lower !== 'o' &&
+                   lower !== 'u';
+        }
+
+        function showTranslation() {
+            var inputText = document.getElementById("inputText").value;
+            var translated = translate(inputText);
+            document.getElementById("output").innerText = "Translated: " + translated;
+        }
+    </script>
+</head>
+<body>
+    <h3>Translate to Rövarspråket</h3>
+    <input id="inputText" type="text" size="40">
+    <button onclick="showTranslation()">Translate</button>
+    <p id="output"></p>
+</body>
+</html>
