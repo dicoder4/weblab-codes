@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Average</title>
+</head>
+<body>
+
+    <h3>Generate Random Numbers and Calculate Average</h3>
+    <button onclick="generateAndAverage()">Generate</button>
+
+    <p id="output"></p>
+
+    <script>
+        function generateAndAverage() {
+            var count = prompt("How many random numbers do you want to generate?");
+            count = parseInt(count);
+
+            if (isNaN(count) || count <= 0) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            var numbers = [];
+            var sum = 0;
+
+            for (var i = 0; i < count; i++) {
+                var num = Math.floor(Math.random() * 100) + 1; // Random number 1-100
+                numbers.push(num);
+                sum += num;
+            }
+
+            var avg = sum / count;
+            document.getElementById("output").innerText = 
+                "Generated numbers: " + numbers.join(", ") + "\nAverage: " + avg.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

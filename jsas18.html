@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rollover Image</title>
+    <script type="text/javascript">
+        function changeImage(imgElement, newSrc) {
+            imgElement.src = newSrc;
+        }
+    </script>
+</head>
+<body>
+
+    <h3>Hover over the image below:</h3>
+
+    <img 
+        src="https://unsplash.com/photos/a-bunch-of-balloons-that-are-shaped-like-email-7NT4EDSI5Ok" 
+        alt="Rollover Image"
+        width="300" 
+        height="200"
+        onmouseover="changeImage(this, 'https://unsplash.com/photos/a-bunch-of-green-hearts-with-a-thumbs-up-sign-on-them-yCau4nLtyg0https://via.placeholder.com/300x200.png?text=Hover+Image')" 
+        onmouseout="changeImage(this, 'https://unsplash.com/photos/a-bunch-of-balloons-that-are-shaped-like-email-7NT4EDSI5Ok')" 
+    />
+
+</body>
+</html>
