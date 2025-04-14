@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbing Function</title>
+    <script>
+        function verbing(str) {
+            // Check if the string length is at least 3
+            if (str.length >= 3) {
+                // If it ends with 'ing', add 'ly' instead
+                if (str.endsWith('ing')) {
+                    return str + 'ly';
+                } else {
+                    return str + 'ing';
+                }
+            } else {
+                return str; // Return unchanged if length is less than 3
+            }
+        }
+
+        function displayResult() {
+            // Get the value from the input field
+            var inputStr = document.getElementById('inputString').value;
+
+            // Call the verbing function and get the result
+            var result = verbing(inputStr);
+
+            // Display the result on the webpage
+            document.getElementById('result').innerText = 'Modified string: ' + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Verbing Function</h1>
+    
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" required><br><br>
+
+    <button onclick="displayResult()">Apply Verbing</button>
+
+    <h3 id="result"></h3>
+</body>
+</html>

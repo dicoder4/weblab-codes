@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Choices</title>
+    <script>
+        function logTopChoices() {
+            // Array holding top choices
+            var topChoices = ["blue", "green", "red", "yellow", "purple"];
+
+            // Loop through the array and log choices with the appropriate suffix
+            for (var i = 0; i < topChoices.length; i++) {
+                var choice = topChoices[i];
+                var suffix;
+
+                // Determine the correct suffix
+                if (i === 0) {
+                    suffix = "st";
+                } else if (i === 1) {
+                    suffix = "nd";
+                } else if (i === 2) {
+                    suffix = "rd";
+                } else {
+                    suffix = "th";
+                }
+
+                // Log the result
+                console.log("My " + (i + 1) + suffix + " choice is " + choice + ".");
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = function() {
+            logTopChoices();
+        };
+    </script>
+</head>
+<body>
+    <h1>My Top Choices</h1>
+    <p>Check the console for my top choices with the appropriate suffixes!</p>
+</body>
+</html>

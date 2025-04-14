@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Bad Function</title>
+    <script>
+        function notBad(str) {
+            // Find the index of 'not' and 'bad'
+            var notIndex = str.indexOf('not');
+            var badIndex = str.indexOf('bad');
+            
+            // Check if 'not' appears before 'bad'
+            if (notIndex !== -1 && badIndex !== -1 && notIndex < badIndex) {
+                // Replace the 'not'...'bad' substring with 'good'
+                return str.substring(0, notIndex) + 'good' + str.substring(badIndex + 3);
+            }
+            // If no such pattern, return the original string
+            return str;
+        }
+
+        function displayResult() {
+            // Get the value from the input field
+            var inputStr = document.getElementById('inputString').value;
+
+            // Call the notBad function and get the result
+            var result = notBad(inputStr);
+
+            // Display the result on the webpage
+            document.getElementById('result').innerText = 'Modified string: ' + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Not Bad Function</h1>
+    
+    <label for="inputString">Enter a sentence:</label>
+    <input type="text" id="inputString" required><br><br>
+
+    <button onclick="displayResult()">Apply Not Bad</button>
+
+    <h3 id="result"></h3>
+</body>
+</html>

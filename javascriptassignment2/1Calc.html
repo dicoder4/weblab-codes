@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Operations</title>
+    <script type="text/javascript">
+        // Function 1: Square a number
+        function squareNumber(num) {
+            var result = num * num;
+            document.getElementById("result").innerHTML += "<p>The result of squaring the number " + num + " is " + result + ".</p>";
+            return result;
+        }
+
+        // Function 2: Half of a number
+        function halfNumber(num) {
+            var result = num / 2;
+            document.getElementById("result").innerHTML += "<p>Half of " + num + " is " + result + ".</p>";
+            return result;
+        }
+
+        // Function 3: Calculate percentage of a number
+        function percentOf(num1, num2) {
+            var result = (num1 / num2) * 100;
+            document.getElementById("result").innerHTML += "<p>" + num1 + " is " + result + "% of " + num2 + ".</p>";
+            return result;
+        }
+
+        // Function 4: Calculate area of a circle with the given radius
+        function areaOfCircle(radius) {
+            var area = Math.PI * Math.pow(radius, 2);
+            var roundedArea = area.toFixed(2); // Round to two decimal places
+            document.getElementById("result").innerHTML += "<p>The area for a circle with radius " + radius + " is " + roundedArea + ".</p>";
+            return parseFloat(roundedArea); // Return the rounded area
+        }
+
+        // Function 5: Perform a series of calculations
+        function calculateOperations() {
+            var num = parseFloat(document.getElementById("inputNumber").value);
+
+            // Step 1: Take half of the number
+            var half = halfNumber(num);
+
+            // Step 2: Square the result of half
+            var squared = squareNumber(half);
+
+            // Step 3: Calculate the area of a circle with the squared result as the radius
+            var area = areaOfCircle(squared);
+
+            // Step 4: Calculate the percentage of the area in relation to the squared result
+            var percent = percentOf(area, squared);
+            
+            document.getElementById("result").innerHTML += "<p>The final percentage is: " + percent + "%</p>";
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Calculator Operations</h1>
+    
+    <label for="inputNumber">Enter a number: </label>
+    <input type="number" id="inputNumber" placeholder="Enter a number" required>
+
+    <button onclick="calculateOperations()">Calculate</button>
+
+    <div id="result">
+        <!-- Results will be displayed here -->
+    </div>
+
+</body>
+</html>

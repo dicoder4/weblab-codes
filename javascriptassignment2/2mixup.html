@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixUp Function</title>
+    <script>
+        function mixUp(str1, str2) {
+            // Swap the first two characters of both strings and concatenate them
+            var newStr1 = str2.substring(0, 2) + str1.substring(2);
+            var newStr2 = str1.substring(0, 2) + str2.substring(2);
+            
+            // Return the concatenated result
+            return newStr1 + ' ' + newStr2;
+        }
+
+        function displayResult() {
+            // Get the values from the input fields
+            var str1 = document.getElementById('string1').value;
+            var str2 = document.getElementById('string2').value;
+
+            // Call the mixUp function and get the result
+            var result = mixUp(str1, str2);
+
+            // Display the result on the webpage
+            document.getElementById('result').innerText = 'Result: ' + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>MixUp Function</h1>
+    
+    <label for="string1">Enter first string:</label>
+    <input type="text" id="string1" required><br><br>
+
+    <label for="string2">Enter second string:</label>
+    <input type="text" id="string2" required><br><br>
+
+    <button onclick="displayResult()">Calculate</button>
+
+    <h3 id="result"></h3>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Card</title>
+  <script>
+    window.onload = function() {
+      // Create a recipe object
+      const recipe = {
+        title: "Mole",
+        servings: 2,
+        ingredients: ["cinnamon", "cumin", "cocoa"]
+      };
+
+      // Log the recipe information
+      console.log(recipe.title);
+      console.log("Serves: " + recipe.servings);
+      console.log("Ingredients:");
+      recipe.ingredients.forEach(ingredient => {
+        console.log(ingredient);
+      });
+    };
+  </script>
+</head>
+<body>
+  <h1>Open the Console to View the Recipe Card</h1>
+</body>
+</html>

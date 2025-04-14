@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluralizer</title>
+    <script>
+        function pluralize(noun, number) {
+            // Handle collective nouns
+            if (noun === "sheep" || noun === "geese") {
+                return number + " " + noun; // Collective nouns stay the same regardless of the number
+            }
+
+            // For regular pluralization
+            if (number === 1) {
+                return number + " " + noun; // No pluralization needed for 1
+            } else {
+                // Add "s" to the noun to make it plural for all other numbers
+                return number + " " + noun + "s";
+            }
+        }
+
+        function displayResult() {
+            // Get the noun and number from the input fields
+            var noun = document.getElementById('noun').value;
+            var number = parseInt(document.getElementById('number').value);
+
+            // Call the pluralize function and get the result
+            var result = pluralize(noun, number);
+
+            // Display the result on the webpage
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Pluralizer</h1>
+    
+    <label for="noun">Enter a noun:</label>
+    <input type="text" id="noun" required><br><br>
+    
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number" required><br><br>
+
+    <button onclick="displayResult()">Pluralize</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        // Example calls to pluralize function to test it
+        console.log(pluralize('cat', 5));  // Expected: 5 cats
+        console.log(pluralize('dog', 1));  // Expected: 1 dog
+        console.log(pluralize('sheep', 3));  // Expected: 3 sheep
+        console.log(pluralize('geese', 10));  // Expected: 10 geese
+    </script>
+</body>
+</html>

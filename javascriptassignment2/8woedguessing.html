@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Guessing Game</title>
+    <script>
+        // Global arrays to hold the word and the guessed letters
+        var word = ['F', 'O', 'X'];  // You can change this to any word you want to test.
+        var guessedLetters = ['_', '_', '_'];  // Start with underscores for each letter.
+
+        // Function to handle the guessing of a letter
+        function guessLetter(letter) {
+            var letterFound = false;
+            
+            // Loop through the word array and check if the guessed letter matches
+            for (var i = 0; i < word.length; i++) {
+                if (word[i] === letter.toUpperCase()) {
+                    guessedLetters[i] = letter.toUpperCase();  // Update guessed letters array
+                    letterFound = true;
+                }
+            }
+
+            // Log the current state of the guessed word
+            console.log(guessedLetters.join(' '));
+
+            // If the guessed letter was found, congratulate the user
+            if (letterFound) {
+                console.log("Good job! You found a letter!");
+            } else {
+                console.log("Oops! No match for the letter " + letter);
+            }
+
+            // Check if the user has guessed all the letters correctly
+            if (guessedLetters.join('') === word.join('')) {
+                console.log("Congratulations! You've guessed the word!");
+            }
+        }
+
+        // Call the function with some guesses for testing
+        window.onload = function() {
+            guessLetter('F');  // Test with letter F
+            guessLetter('O');  // Test with letter O
+            guessLetter('X');  // Test with letter X
+            guessLetter('A');  // Test with a wrong letter A
+        };
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Word Guessing Game</h1>
+    <p>Open the console to see how the game progresses!</p>
+</body>
+</html>
