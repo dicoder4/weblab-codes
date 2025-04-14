@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Translator</title>
+    <script>
+        function translateCard() {
+            var lexicon = {
+                "merry": "god",
+                "christmas": "jul",
+                "and": "och",
+                "happy": "gott",
+                "new": "nytt",
+                "year": "år"
+            };
+
+            var input = document.getElementById("englishText").value.toLowerCase();
+            var words = input.split(" ");
+            var result = "";
+
+            for (var i = 0; i < words.length; i++) {
+                if (lexicon[words[i]]) {
+                    result += lexicon[words[i]] + " ";
+                } else {
+                    result += words[i] + " "; // keep unknown word
+                }
+            }
+
+            document.getElementById("output").innerText = "Swedish: " + result.trim();
+        }
+    </script>
+</head>
+<body>
+    <h3>Translate Christmas Card (English → Swedish)</h3>
+    <input type="text" id="englishText" placeholder="Type here...">
+    <button onclick="translateCard()">Translate</button>
+    <p id="output"></p>
+</body>
+</html>

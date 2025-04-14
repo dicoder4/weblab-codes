@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Frequency</title>
+    <script>
+        function charFreq(str) {
+            var freq = {};
+            for (var i = 0; i < str.length; i++) {
+                var char = str[i];
+                if (freq[char]) {
+                    freq[char]++;
+                } else {
+                    freq[char] = 1;
+                }
+            }
+            return freq;
+        }
+
+        function showFrequency() {
+            var input = document.getElementById("inputText").value;
+            var result = charFreq(input);
+            var output = "";
+
+            for (var key in result) {
+                output += key + ": " + result[key] + "\n";
+            }
+
+            document.getElementById("output").innerText = output;
+        }
+    </script>
+</head>
+<body>
+    <h3>Character Frequency Counter</h3>
+    <input type="text" id="inputText" placeholder="Type something...">
+    <button onclick="showFrequency()">Show Frequency</button>
+    <pre id="output"></pre>
+</body>
+</html>
