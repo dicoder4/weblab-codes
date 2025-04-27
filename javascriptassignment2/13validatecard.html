@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Validator</title>
+</head>
+<body>
+  <h1>Credit Card Validation</h1>
+
+  <script>
+    function validateCreditCard(cardNumber) {
+      // Remove dashes
+      const cleaned = cardNumber.split('-').join('');
+
+      // Check if 16 characters
+      if (cleaned.length !== 16) {
+        return { valid: false, number: cardNumber, error: 'wrong_length' };
+      }
+
+      // Check if all are numbers
+      if (!/^\d+$/.test(cleaned)) {
+        return { valid: false, number: cardNumber, error: 'invalid_characters' };
+      }
+
+      // Check if at least two different digits
+      const uniqueDigits = new Set(cleaned);
+      if (uniqueDigits.size === 1) {
+        return { valid: false, number: cardNumber, error: 'only_one_type_of_number' };
+      }
+
+      // Check if final digit is even
+      const lastDigit = Number(cleaned[cleaned.length - 1]);
+      if (lastDigit % 2 !== 0) {
+        return { valid: false, number: cardNumber, error: 'last_digit_not_even' };
+      }
+
+      // Check if sum > 16
+      let sum = 0;
+      for (let digit of cleaned) {
+        sum += Number(digit);
+      }
+      if (sum <= 16) {
+        return { valid: false, number: cardNumber, error: 'sum_less_than_16' };
+      }
+
+      // If all checks pass
+      return { valid: true, number: cardNumber };
+    }
+
+    // Testing
+    const cardNumbers = [
+      '9999-9999-8888-0000', // valid
+      '6666-6666-6666-1666', // valid
+      'a923-3211-9c01-1112', // invalid characters
+      '4444-4444-4444-4444', // only one type of number
+      '1111-1111-1111-1110', // sum less than 16
+      '6666-6666-6666-6661'  // last digit not even
+    ];
+
+    for (const card of cardNumbers) {
+      console.log(validateCreditCard(card));
+    }
+  </script>
+
+</body>
+</html>
